@@ -3,8 +3,8 @@
 # compiled output
 /dist
 /tmp
-/assets/js/
-/assets/css/
+/assets/js
+/assets/css
 
 
 # dependencies
