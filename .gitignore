@@ -3,6 +3,9 @@
 # compiled output
 /dist
 /tmp
+/assets/js/
+/assets/css/
+
 
 # dependencies
 /node_modules
