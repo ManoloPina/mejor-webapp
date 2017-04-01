@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { Auth } from '../auth.service';
 
 @Component({
   selector: 'app-header',
@@ -7,5 +8,11 @@ import { Component } from "@angular/core";
 })
 
 export class HeaderComponent {
+  
   public name: String = 'MContigo';
+
+  constructor(private auth: Auth) {
+
+  }
+  
 }
