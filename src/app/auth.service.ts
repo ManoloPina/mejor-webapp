@@ -20,7 +20,6 @@ export class Auth {
   public login() {
     // Call the show method to display the widget.
     this.lock.show();
-    
   }
 
   public authenticated() {
@@ -32,5 +31,7 @@ export class Auth {
   public logout() {
     // Remove token from localStorage
     localStorage.removeItem('id_token');
+    //Came back to home
+    this.router.navigateByUrl('');
   }
 }
