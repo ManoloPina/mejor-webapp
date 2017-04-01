@@ -14,16 +14,12 @@ export class Auth {
     // Add callback for lock `authenticated` event
     this.lock.on("authenticated", (authResult) => {
       localStorage.setItem('id_token', authResult.idToken);
-      
     });
   }
 
   public login() {
     // Call the show method to display the widget.
     this.lock.show();
-    if(this.authenticated()) {
-      this.router.navigateByUrl('/assinature');
-    }
     
   }
 
