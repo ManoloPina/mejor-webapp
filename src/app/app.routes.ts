@@ -5,11 +5,13 @@ import { AuthGuard } from './auth.guard';
 import { AssinatureComponent } from "./assinature/assinature.component";
 import { HomeComponent } from "./home/home.component";
 import { ProfileComponent } from "./profile/profile.component";
+import { LoginComponent } from './login/login.component';
 
 const appRoutes: Routes = [
   { path: 'assinature', component: AssinatureComponent, canActivate: [AuthGuard]},
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: '', component: HomeComponent},
+  { path: 'login', component: LoginComponent },
   { path: '**', redirectTo: '' }
 ];
 

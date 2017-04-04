@@ -10,7 +10,7 @@
       <li class="nav-item">
         <a 
         class="nav-link"
-        routerLink="/assinature"
+        routerLink="/home"
         *ngIf="auth.authenticated()">Home</a>
       </li>
       
@@ -24,14 +24,14 @@
       <li class="nav-item">
         <a 
         class="nav-link"
-        routerLink="/assinature"
+        routerLink="/profile"
         *ngIf="auth.authenticated()">Perfil</a>
       </li>
 
       <li class="nav-item">
         <a 
         class="nav-link" 
-        (click)="auth.login()" 
+        routerLink="/login" 
         *ngIf="!auth.authenticated()">Log In</a>
       </li>
 

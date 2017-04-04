@@ -1,36 +1,32 @@
-<form>
-  <div class="form-group">
-    <label for="name">Username</label>
-    <input
-      type="text"
-      class="form-control"
-      #username
-      placeholder="Enter your email">
+<main class="container">
+
+  <div class="card">
+    
+    <div class="card-block">
+      <h4 class="card-title text-primary">Login</h4>
+      
+      <div class="form-group">
+        <label>Login:</label>
+        <input 
+        type="text"
+        [(ngModel)]="email"
+        placeholder="example@email.com"
+        class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label>Senha:</label>
+        <input 
+        type="password" 
+        placeholder="password"
+        [(ngModel)]="password"
+        class="form-control">
+      </div>
+
+      <div class="form-group">
+        <button class="btn btn-primary" (click)="auth.login(email, password)">Login</button>
+      </div>
+
+    </div>
   </div>
-  <div class="form-group">
-    <label for="name">Password</label>
-    <input
-      type="password"
-      class="form-control"
-      #password
-      placeholder="Enter your password">
-  </div>
-  <button
-    type="submit"
-    class="btn btn-default"
-    (click)="auth.login(username.value, password.value)">
-      Log In
-  </button>
-  <button
-    type="submit"
-    class="btn btn-default"
-    (click)="auth.signup(username.value, password.value)">
-      Sign Up
-  </button>
-  <button
-    type="button"
-    class="btn btn-default btn-primary"
-    (click)="auth.loginWithGoogle()">
-      Log In with Google
-  </button>
-</form>
+</main>
