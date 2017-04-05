@@ -32,7 +32,6 @@ export class Auth {
     }), options)
     .toPromise()
     .then(response => {
-      console.log('response', response.json());
       this.token = response.json().token;
       this.userId = response.json().userId;
       sessionStorage.setItem('token', `${this.token}`);
@@ -52,6 +51,7 @@ export class Auth {
   public logout() {
     // Remove token from localStorage
     sessionStorage.removeItem('token');
+    sessionStorage.removeItem('userId');
     //Came back to home
     this.router.navigateByUrl('');
   }

@@ -18,21 +18,18 @@ export class LoginService {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
     
-    this.http.post(`${Constants.API_URL}/users/create`, {
+    return this.http.post(`${Constants.API_URL}/users/create`, {
       email: email, 
       password: password
     }, options)
     .toPromise()
     .then(response => {
-      console.log('json', response.json());
-      return Promise.resolve(response.json());
+      return Promise.resolve(response);
     })
     .catch(err => {
-      console.log('erro ao cadastrar o usuário', err);
       return Promise.reject(err);
     });
 
-    return Promise.resolve();
   }
  
 }
