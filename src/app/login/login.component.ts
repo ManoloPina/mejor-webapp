@@ -29,18 +29,15 @@ export class LoginComponent {
   createAccount(email, password) {
     this.loginService.createAccount(email, password)
     .then(response => {
-      new Promise((resolve, reject) => {
-        console.log('response', response);
       if(response && response.ok) {
-        this.auth.login(email, password);
-        resolve();
-        console.log('processo 1');
+        this.auth.login(email, password)
+        .then(response => {
+          this.router.navigateByUrl('/assinature');
+        });
       }
-      });
     })
     .then(() => {
       console.log('processo 2');
-      this.router.navigateByUrl('/assinature');
     })
     .catch(err => {
       console.error(err.json().errmsg);

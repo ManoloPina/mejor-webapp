@@ -21,12 +21,12 @@ export class Auth {
     private http: Http) {
   }
 
-  public login(email:String, password: String) {
+  public login(email:String, password: String): Promise<any> {
     // Call the show method to display the widget.
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
   
-    this.http.post(`${Constants.API_URL}/login`, 
+    return this.http.post(`${Constants.API_URL}/login`, 
     JSON.stringify({ 
       email: email, password: password 
     }), options)
@@ -36,9 +36,10 @@ export class Auth {
       this.userId = response.json().userId;
       sessionStorage.setItem('token', `${this.token}`);
       sessionStorage.setItem('userId', `${this.userId}`);
-      this.router.navigateByUrl('');
+      Promise.resolve(response);
     }).catch(err => {
       console.log('err', err);
+      Promise.reject(err);
     });
   }
 
