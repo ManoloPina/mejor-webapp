@@ -7,7 +7,8 @@
           <p class="card-text">Para conhecer alguns de nossos cursos por favor, efetue o login, ou faça o cadastro escolhendo um de nossos planos.</p>
           <button 
           class="btn btn-primary"
-          routerLink="/login">Login</button>
+          routerLink="/login"
+          *ngIf="!auth.authenticated()">Login</button>
         </div>
       </div>
     </div>
