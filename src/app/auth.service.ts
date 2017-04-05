@@ -13,16 +13,12 @@ declare var Auth0Lock: any;
 @Injectable()
 export class Auth {
 
-  userProfile: Object;
   token: String;
+  userId: String;
 
   constructor(
     private router: Router,
     private http: Http) {
-    // Add callback for lock `authenticated` event
-
-    this.userProfile = JSON.parse(localStorage.getItem('profile'));
-
   }
 
   public login(email:String, password: String) {
@@ -36,9 +32,12 @@ export class Auth {
     }), options)
     .toPromise()
     .then(response => {
+      console.log('response', response.json());
       this.token = response.json().token;
-      localStorage.setItem('token', `${this.token}`);
-      console.log('authenticated ?', this.authenticated());
+      this.userId = response.json().userId;
+      sessionStorage.setItem('token', `${this.token}`);
+      sessionStorage.setItem('userId', `${this.userId}`);
+      this.router.navigateByUrl('');
     }).catch(err => {
       console.log('err', err);
     });
@@ -47,14 +46,12 @@ export class Auth {
   public authenticated() : Boolean {
     // Check if there's an unexpired JWT
     // This searches for an item in localStorage with key == 'id_token'
-    return localStorage.getItem('token') ? true : false;
+    return sessionStorage.getItem('token') ? true : false;
   }
 
   public logout() {
     // Remove token from localStorage
-    localStorage.removeItem('id_token');
-    localStorage.removeItem('profile');
-    this.userProfile = undefined;
+    sessionStorage.removeItem('token');
     //Came back to home
     this.router.navigateByUrl('');
   }
