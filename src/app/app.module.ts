@@ -14,6 +14,7 @@ import { AssinatureComponent } from './assinature/assinature.component';
 import { routing, appRoutingProviders } from './app.routes';
 import { AuthGuard } from "./auth.guard";
 import { NotificationComponent } from './notification/notification.component';
+import { LoginService } from './login/login.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { NotificationComponent } from './notification/notification.component';
     HttpModule,
     routing
   ],
-  providers: [Auth, appRoutingProviders],
+  providers: [Auth, appRoutingProviders, LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
