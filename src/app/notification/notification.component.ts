@@ -14,10 +14,6 @@ export class NotificationComponent {
   constructor() {
   }
 
-  // public isVisible(change: Boolean): void {
-  //   this.visible = !change;
-  // }
-
   public add(status: String, title: String, message) {
     this.status = status;
     this.title = title;
