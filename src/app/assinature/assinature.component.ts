@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Auth } from "../auth.service";
 
 @Component({
   selector: 'assinature',
@@ -6,7 +7,9 @@ import { Component } from '@angular/core';
 })
 
 export class AssinatureComponent {
-  constructor() {
+  
+  constructor(private auth: Auth) {
     
   }
+  
 }
